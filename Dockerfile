@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:1.10.0-py3
+FROM tensorflow/tensorflow:1.12.0-py3
 LABEL maintainer="Lara Lloret Iglesias <lloret@ifca.unican.es>"
 LABEL version="0.1"
 LABEL description="DEEP as a Service Container: Seeds Classification"
@@ -21,6 +21,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
 
 WORKDIR /srv
 
+# Install the image classifier package
 RUN git clone https://github.com/indigo-dc/image-classification-tf && \
     cd image-classification-tf && \
     python -m pip install -e . && \
@@ -42,10 +43,7 @@ RUN curl -o ./image-classification-tf/models/${MODEL_TAR} \
 RUN cd image-classification-tf/models && \
         tar -xf ${MODEL_TAR}
 
-# Temporal patch to fix keras issue
-RUN cp /srv/image-classification-tf/docker/advanced_activations.py /usr/local/lib/python3.5/dist-packages/tensorflow/python/keras/layers/advanced_activations.py
-
-# install rclone
+# Install rclone
 RUN apt-get install -y wget nano && \
     wget https://downloads.rclone.org/rclone-current-linux-amd64.deb && \
     dpkg -i rclone-current-linux-amd64.deb && \
