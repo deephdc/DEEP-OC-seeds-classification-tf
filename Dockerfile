@@ -7,12 +7,15 @@ LABEL maintainer="Lara Lloret Iglesias <lloret@ifca.unican.es>"
 LABEL version="0.1"
 LABEL description="DEEP as a Service Container: Seeds Classification"
 
+# Add container's metadata to appear along the models metadata
+ENV CONTAINER_MAINTAINER "Lara Lloret Iglesias <lloret@ifca.unican.es>"
+ENV CONTAINER_VERSION "0.1"
+ENV CONTAINER_DESCRIPTION "DEEP as a Service Container: Seeds Classification"
+
 # What user branch to clone (!)
 ARG branch=master
 
-RUN apt-get update && \
-    apt-get upgrade -y
-
+RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
         curl \
         git \
