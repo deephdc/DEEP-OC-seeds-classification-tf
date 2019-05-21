@@ -1,0 +1,52 @@
+{
+    "title": "DEEP OC Seeds Classification",
+    "summary": "A trained Xception net on Tensorflow/Keras to classify seeds.",
+    "description": [
+        "Citizen science has become a powerful force for scientific inquiry, providing researchers with access to a vast array of",
+        "data points while connecting non scientists to the real process of science. This citizen-researcher relationship",
+        "creates a very interesting synergy, allowing for the creation, execution, and analysis of research projects. ",
+        "With this in mind, a Convolutional Neural Network has been trained to identify seed images in collaboration ",
+        "with [Spanish Royal Botanical Garden](http://www.rjb.csic.es).\n",
+
+        "This Docker container contains a trained Convolutional Neural network optimized for seeds identification using",
+        "images. The architecture used is an Xception [1] network using Keras on top of Tensorflow.\n",
+
+        "As training dataset we have used a collection of images from the [Spanish Royal Botanical Garden](http://www.rjb.csic.es)",
+        "which consists of around 28K images from 743 species and 493 genera.\n",
+
+        "<img class='fit', src='https://raw.githubusercontent.com/deephdc/DEEP-OC-seeds-classification-tf/master/images/seeds.png'/>\n",
+
+        "This service is based in the [Image Classification with Tensorflow](./deep-oc-image-classification-tensorflow.html) model.\n",
+
+        "**References**\n",
+        "[1]: Chollet, Francois. [Xception: Deep learning with depthwise separable convolutions](https://arxiv.org/abs/1610.02357) arXiv preprint (2017): 1610-02357.\n"
+	],
+    "keywords": [
+        "services", "library/tensorflow", "library/keras", "docker"
+    ],
+    "license": "Apache 2.0",
+    "date_creation": "2019-01-01",
+    "sources": {
+		"dockerfile_repo": "https://github.com/deephdc/DEEP-OC-seeds-classification-tf",
+		"docker_registry_repo": "deephdc/deep-oc-seeds-classification-tf",
+		"code": "https://github.com/deephdc/image-classification-tf",
+        "pre_trained_weights": "https://cephrgw01.ifca.es:8080/swift/v1/seeds-tf/"
+	},
+    "continuous_integration": {
+        "build_status_badge": "https://jenkins.indigo-datacloud.eu/buildStatus/icon?job=Pipeline-as-code/DEEP-OC-org/DEEP-OC-seeds-classification-tf/master",
+        "build_status_url": "https://jenkins.indigo-datacloud.eu/job/Pipeline-as-code/job/DEEP-OC-org/job/DEEP-OC-seeds-classification-tf/job/master"
+    },
+    "tosca": [
+        {
+            "title": "Mesos (CPU)",
+            "url": "https://raw.githubusercontent.com/indigo-dc/tosca-templates/master/deep-oc/deep-oc-seeds-classification-tf-mesos-cpu.yml",
+            "inputs": [
+                "rclone_conf",
+                "rclone_url",
+                "rclone_vendor",
+                "rclone_user",
+                "rclone_pass"
+            ]
+        }
+    ]
+}
