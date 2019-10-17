@@ -11,6 +11,9 @@
         "This Docker container contains a trained Convolutional Neural network optimized for seeds identification using",
         "images. The architecture used is an Xception [1] network using Keras on top of Tensorflow.\n",
 
+        "The PREDICT method expects an RGB image as input (or the url of an RGB image) and will return a JSON with ",
+        "the top 5 predictions.\n",
+
         "As training dataset we have used a collection of images from the [Spanish Royal Botanical Garden](http://www.rjb.csic.es)",
         "which consists of around 28K images from 743 species and 493 genera.\n",
 
