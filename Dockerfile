@@ -29,7 +29,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
          git \
          curl \
          wget \
-         $pyVer-setuptools \
+         python3-setuptools \
          $pyVer-pip \
          $pyVer-wheel && \
     apt-get clean && \
