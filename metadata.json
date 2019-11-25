@@ -29,13 +29,13 @@
     ],
     "license": "Apache 2.0",
     "date_creation": "2019-01-01",
+    "training_files_url": "https://cephrgw01.ifca.es:8080/swift/v1/seeds-tf/",
+    "dataset_url": "http://www.rjb.csic.es/jardinbotanico/jardin/",
+    "cite_url": "http://digital.csic.es/handle/10261/194549",
     "sources": {
 		"dockerfile_repo": "https://github.com/deephdc/DEEP-OC-seeds-classification-tf",
 		"docker_registry_repo": "deephdc/deep-oc-seeds-classification-tf",
-		"code": "https://github.com/deephdc/image-classification-tf",
-        "training_files_url": "https://cephrgw01.ifca.es:8080/swift/v1/seeds-tf/",
-        "dataset_url": "http://www.rjb.csic.es/jardinbotanico/jardin/",
-        "cite_url": "http://digital.csic.es/handle/10261/194549"
+		"code": "https://github.com/deephdc/image-classification-tf"
 	},
     "continuous_integration": {
         "build_status_badge": "https://jenkins.indigo-datacloud.eu/buildStatus/icon?job=Pipeline-as-code/DEEP-OC-org/DEEP-OC-seeds-classification-tf/master",
